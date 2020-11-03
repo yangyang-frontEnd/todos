@@ -3,9 +3,19 @@ import Li from "./li";
 
 class List extends Component {
   render() {
+    let { data, changeDone, removeData } = this.props;
     return (
       <ul id="todo-list">
-        <Li></Li>
+        {data.map((item) => {
+          return (
+            <Li
+              data={item}
+              key={item.id}
+              changeDone={changeDone}
+              removeData={removeData}
+            ></Li>
+          );
+        })}
       </ul>
     );
   }
