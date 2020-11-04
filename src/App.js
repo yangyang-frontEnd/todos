@@ -64,6 +64,14 @@ class App extends Component {
     });
     this.setState({ data });
   };
+  removeDone = () => {
+    let { data } = this.state;
+    this.setState({
+      data: data.filter((item) => {
+        return !item.done;
+      }),
+    });
+  };
   render() {
     let { data } = this.state;
     return (
@@ -71,14 +79,18 @@ class App extends Component {
         <Title></Title>
         <div className="content">
           <Input addData={this.addData}></Input>
-          <List
-            data={data}
-            changeDone={this.changeDone}
-            removeData={this.removeData}
-            changeTxt={this.changeTxt}
-          ></List>
+          {data.length < 1
+            ? ""
+            : [
+                <List
+                  data={data}
+                  changeDone={this.changeDone}
+                  removeData={this.removeData}
+                  changeTxt={this.changeTxt}
+                ></List>,
+                <Footer data={data} removeDone={this.removeDone}></Footer>,
+              ]}
         </div>
-        <Footer></Footer>
       </div>
     );
   }
