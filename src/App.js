@@ -3,6 +3,7 @@ import "./index.css";
 import Title from "./title";
 import Input from "./input";
 import List from "./list";
+import Footer from "./footer";
 
 class App extends Component {
   /*   state = {
@@ -77,6 +78,7 @@ class App extends Component {
             changeTxt={this.changeTxt}
           ></List>
         </div>
+        <Footer></Footer>
       </div>
     );
   }
