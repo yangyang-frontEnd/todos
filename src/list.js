@@ -3,7 +3,7 @@ import Li from "./li";
 
 class List extends Component {
   render() {
-    let { data, changeDone, removeData } = this.props;
+    let { data, changeDone, removeData, changeTxt } = this.props;
     return (
       <ul id="todo-list">
         {data.map((item) => {
@@ -11,8 +11,10 @@ class List extends Component {
             <Li
               data={item}
               key={item.id}
+              txt={item.txt}
               changeDone={changeDone}
               removeData={removeData}
+              changeTxt={changeTxt}
             ></Li>
           );
         })}

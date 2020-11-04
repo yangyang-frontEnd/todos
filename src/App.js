@@ -53,6 +53,16 @@ class App extends Component {
       }),
     });
   };
+  changeTxt = (id, txt) => {
+    console.log("触发了changeTxt");
+    let { data } = this.state;
+    data.forEach((item) => {
+      if (item.id === id) {
+        item.txt = txt;
+      }
+    });
+    this.setState({ data });
+  };
   render() {
     let { data } = this.state;
     return (
@@ -64,6 +74,7 @@ class App extends Component {
             data={data}
             changeDone={this.changeDone}
             removeData={this.removeData}
+            changeTxt={this.changeTxt}
           ></List>
         </div>
       </div>
